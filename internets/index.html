@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #4E5869;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ 元素/标签选择器 ~~ */
+ul, ol, dl { /* 由于浏览器之间的差异，最佳做法是在列表中将填充和边距都设置为零。为了保持一致，您可以在此处指定需要的数值，也可以在列表所包含的列表项（LI、DT 和 DD）中指定需要的数值。请注意，除非编写一个更为具体的选择器，否则您在此处进行的设置将会层叠到 .nav 列表。 */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
+	padding-right: 15px;
+	padding-left: 15px; /* 向 div 内的元素侧边（而不是 div 自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套 div 用作替代方法。 */
+}
+a img { /* 此选择器将删除某些浏览器中显示在图像周围的默认蓝色边框（当该图像包含在链接中时） */
+	border: none;
+}
+
+/* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+	text-decoration: none;
+}
+
+/* ~~ 此容器包含所有其它 div，并依百分比设定其宽度 ~~ */
+.container {
+	width: 80%;
+	max-width: 1260px;
+	min-width: 780px;明。 
+	background-color: #FFF;
+	margin: 0 auto;
+}
+
+.header {
+	background-color: #6F7D94;
+}
+
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-color: #93A5C4;
+	padding-bottom: 10px;
+	margin-left:50px;
+	margin-right:50px;
+	
+}
+.content {
+	padding: 10px 0;
+	width: 60%;
+	float: left;
+}
+.sidebar2 {
+	float: left;
+	width: 20%;
+	background-color: #93A5C4;
+	padding: 10px 0;
+}
+
+/* ~~ 此分组的选择器为 .content 区域中的列表提供了空间 ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* 此填充反映上述标题和段落规则中的右填充。填充放置于下方可用于间隔列表中其它元素，置于左侧可用于创建缩进。您可以根据需要进行调整。 */
+}
+
+/* ~~ 导航列表样式（如果选择使用预先创建的 Spry 等弹出菜单，则可以删除此样式） ~~ */
+ul.nav {
+	list-style: none; /* 这将删除列表标记 */
+	border-top: 1px solid #666; /* 这将为链接创建上边框 – 使用下边框将所有其它项放置在 LI 中 */
+	margin-bottom: 15px; /* 这将在下面内容的导航之间创建间距 */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* 这将创建按钮间隔 */
+}
+ul.nav a, ul.nav a:visited { /* 对这些选择器进行分组可确保链接即使在访问之后也能保持其按钮外观 */
+	padding: 5px 5px 5px 15px;
+	display: block; /* 这将为链接赋予块属性，使其填满包含它的整个 LI。这样，整个区域都可以响应鼠标单击操作。 */
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘导航的背景和文本颜色 */
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+/* ~~ 脚注 ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #6F7D94;
+	position: relative;/* 这可以使 IE6 hasLayout 以正确方式进行清除 */
+	clear: both; /* 此清除属性强制 .container 了解列的结束位置以及包含列的位置 */
+}
+
+/* ~~ 其它浮动/清除类 ~~ */
+.fltrt {  /* 此类可用于在页面中使元素向右浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* 此类可用于在页面中使元素向左浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* 如果从 #container 中删除或移出了 #footer，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style>
+<style type="text/css">
+h4 {
+	font-family:"Lucida Console", Monaco, monospace;
+}
+</style>
+<script>
+function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+	var bIsTV = sUserAgent.match(/AndroidTV/i) == "AndroidTV";
+    if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+}
+browserRedirect();
+</script>
+<body background="img/desktop2.jpg">
+<div id="logo">
+<img src="../img/logo/logo v3.1.png"width="308"height="173"alt=" 对不起，你的浏览器好像不支持此网页，请使用Chrome等浏览器浏览">
+</div>
+<hr>
+<!--[if lte IE5]>
+<p>Internet Exploder 8以下在此网站是不被支持的，请使用IE10或Chrome进行浏览</p>
+<![endif]-->
+<!--[if lte Edge]>
+<p>EDGE是不被支持的，请使用IE10或Chrome进行浏览</p>
+<![endif]-->
+<style type="text/css">
+ul {
+	background color:#00DFFF;
+	margin:10px 10px 0px 10px;
+	list-style-type:none;
+	padding:5px 0px 5px 0px;
+}
+ul,li {
+	display:inline;
+	padding:5px 10px 5px 10px;\
+	text-align:center;
+}
+ul li a:link,ul li a:visited {
+	color:#00F;
+	border-bottom:none;
+	font-weight:bold;
+}
+ul li.seleted {
+	background-color:#9FF;
+}
+</style>
+<style>
+</style>
+    <ul>
+      <li><a href="../index.html">家</a></li>
+      <li><a href="homephotos.html">图片</a></a></li>
+      <li><a href="newblog.html">博客</a></li>
+      <li><a href="daohang.html">导航</a></li>
+      <li><a href="https://fucheng.666forum.com">论坛</a><!-- end .sidebar1 --></li>
+      </ul>
+</a>
+<hr>
+<div id="10000">
+<div id="lgbar">
+<!--<img src="img/logo/logo v2.0.png"alt="错误!"width="230"height="100">-->
+<p>
+<!--FuChengInternet-万福丞的个人网站-->
+<br>
+<!--创建于2018年7月18日-->
+</p>
+</div>
+<div id="big">
+<p>
+此版块正在施工 请等待
+</p>
+</script>
+<br>
+<h2>计算机(JavaScript制作)</h2>
+<p>可以按F12修改</p>
+<p>y = 5, 计算 x = y + 2,  x 为:</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+    var y = 5;
+    var x = y + 5;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+<p>
+Your Email
+</p>
+ <input type="email">
+ <p>
+ Your tel
+ </p>
+ <input type="tel">
+ <input type="date"year="2018"month="08"day="13">
+ <p style="color:#FFBFAA">
+ <font size="+3">更新日志</font>
+ </p>
+ <p style="color:#CFF">
+ <font size="+2">
+ v 2.3.3 正式版 更新
+ </font>
+ <br>
+ <font size="+1">
+ -更新历史版本目录
+ <br>
+ -更新测试版
+ <br>
+ -更新 Youtube 我的世界视频
+ <br>
+ -更新投票
+ <br>
+ -更新THE END 位置
+ <br>
+ -更新LOGO 
+ </font>
+ </p>
+ <p style="color:#0F0"> 
+ <font size="+3">THE END</font>
+ </p>
+</div>
+<!--BAR END-->
+<link href="../css/index.css" rel="stylesheet" type="text/css">
+<div id="line">
+<p style="color:#00F">
+<font size="5">欢迎！</font>
+</p>
+<br>
+<p>
+<p style="color:#D400FF">
+网页最后更新于<time datetime="2018-8-23">2018/8/23</time><br>
+<fuchengtag>
+<testtag>
+网站版本:<txt> v2.3.3 beta
+</txt>
+</testtag>
+</fuchengtag>
+</p>
+<p style="color:#0FF">
+历史版本目录(无法进入)
+<br>
+v1.0 beta build 1
+<br>
+v1.1 正式版
+<br>
+1.5 beta build 1
+<br>
+v1.5  beta build 2
+<br>
+v1.5 beta build 3
+<br>
+v1.5 test 0728
+<br>
+v1.5 正式版
+<br>
+v1.6 正式版
+<br>
+v2.0 正式版
+<br>
+v2.1.0 build-1
+<br>
+v2.1.1 beta
+<br>
+v2.2.0 正式版
+<br>
+v2.2.1 build-1
+<br>
+v2.2.1 build-2
+<br>
+v2.2.2 beta
+<br>
+v2.2.2正式版
+<br>
+v2.2.3 build-1
+<br>
+v2.2.3 build-2
+<br>
+v2.2.3 正式版
+<br>
+v2.3.1 beta
+<br>
+v2.3.1 正式版
+<br>
+v2.3.2 正式版
+<br>
+v2.3.3 beta</p>
+<p style="color:#0FF">v2.3.3 正式版（现在） </p>
+<br>
+<p style="color:#F00">
+共更新22次 感谢支持！
+</p>
+<p style="color:#D400FF">&nbsp;</p>
+<a href="https://user.qzone.qq.com/858083015/infocenter"target="_blank"><img src="../img/kongjian.png"height="150"width="200">
+</a>
+<a href="https://fucheng.666forum.com"target="_blank"><img src="../img/forum.png"height="150"width="200">
+</a>
+<a href="http://fucheng.forums-free.com/"target="_blank"><img src="../img/forum2.png"height="150"width="200">
+</a>
+<a href="https://mcplayers.666forum.com/f7-forum"target="_blank"><img src="../img/rules.png"height="150"width="200">
+</a>
+<a href="homephotos.html"target="_blank"><img src="../img/photo.png"height="150"width="200">
+</a>
+<a href="https://www.google.com"target="_blank"><img src="../img/googletest.png"height="150"width="200">
+</a>
+<a href="https://www.baidu.com"target="_blank"><img src="../img/baidu.png"height="150"width="200"><br>
+</a>
+<a href="ninja.html"target="_blank"><img src="../img/gms.png"height="150"width="200">
+</a>
+<a href="../404error.html"target="_blank"><img src="../img/wait.png"height="150"width="200">
+</a>
+<script type="text/javascript" src="../java/clock.js">
+</script>
+<!--WELCOME CODE-->
+<p>
+<txt>
+ <p style="color:#F00">W</p>
+ <p style="color:#FF0">e</p>
+ <p style="color:#00F">l</p>
+ <p style="color:#0F5">c</p>
+ <p style="color:#AA3FFF">o</p>
+ <p style="color:#FF5F00">m</p>
+ <p style="color:#00DFAA">e</p>
+ </txt>
+ </p>
+<p style="color:#A0F">
+<!--END-->
+<!--PLAY GAMES -->
+<p style="color:#D4FF00">
+<font size="+2">我玩的游戏</font>
+</p>
+<a href="https://minecraft.net/zh-hans"target="_blank"><img src="../img/game/minecraftlau.PNG" height="70"width="70">
+</a>
+<p style="color:#0F0">Minecraft Laucher</p>
+<p style="color:#808080">点击图片进入官网</p>
+<!--chinamc-->
+<a href="https://mc.163.com/index.html"target="_blank"><img src="../img/game/minecraftcn.PNG"height="70"width="70">
+</a>
+<p style="color:#00DFFF">我的世界中国版</p>
+<p style="color:#808080">点击图片进入官网</p>
+<!--win10mc-->
+<a href="https://www.microsoft.com"target="_blank"><img src="../img/game/minecraftwin10.PNG"height="70"width="70">
+</a>
+<p style="color:#0FA">MInecraft For Windows 10</p>
+<p style="color:#808080">点击图片进入官网</p>
+<a href="https://pubg.qq.com"target="_blank"><img src="../img/game/pubg.PNG"height="70"width="70">
+</a>
+<p style="color:#FF9F00">绝地求生</p>
+<p style="color:#808080">点击图片进入官网</p>
+<!--END-->
+<p style="color:#AA9FFF">
+<font size="+2">爱好</font>
+</p>
+<img src="../img/hobby/html.PNG"height="50"width="100">
+<p style="color:#B0E0E6">
+HTML/JAVA编程
+</p>
+<br>
+<br>
+<img src="../img/hobby/paint.PNG"height="60"width="60">
+<p style="color:#7FFFD4">
+画画
+</p>
+<br>
+<img src="../img/game/minecraftwin10.PNG"height="60"width="60">
+<p style="color:YellowGreen">
+玩游戏
+</p>
+<p id="demo">单击按钮显示今天几号</p>
+<button onclick="myFunction()">点我</button>
+<script>
+function myFunction(){
+	var d = new Date();
+	var x = document.getElementById("demo");
+	x.innerHTML=d.getDate();
+}
+</script>
+<br>
+<a href="../index.html"target="_blank"><img src="../img/testnew.png"height="55"width="57">
+</a>
+<h1>当前时间</h1>
+<IFRAME border=0 frameBorder=0 height=217 scrolling=no 
+      src="http://www.1t2t.com/1t/so3.htm" 
+  width=210></IFRAME>
+  <h1>日历</h1>
+  <IFRAME border=0 frameBorder=0 height=240 scrolling=no 
+      src="http://www.1t2t.com/1t/wo3.htm" 
+  width=240></IFRAME>
+<p style="color:#A0F">
+&copy;版权所有 COPYRIGHT 2018
+</p>
+<!--BAR-->
+</div>
+<p>我在 <time>2018/7/28</time> 创建了这个网站</p> 
+<div id="logo">
+<img src="../img/logo/logo v2.0.png"height="95" width="218">
+</div>
+</script>
+</div>
+<div id="mid">
+ <h1><a href<p style="color:#0080FF">欢迎来到我的网站！</a></p></h1>
+<h2><a href<p style="color:#FF0000">(休闲室网站)</a></p></h2>
+<p>
+<p style="color:#F05">
+<strong>
+注意：此网站不支持Microsoft Edge,Safari,360浏览器,	QQ浏览器和 Internet Exploder等。 请使用Firefox和Chrome进行浏览
+</strong>
+</p>
+<p>语言:<a href="../index.html">中文</a> ,<a href="../EN_index.html">英文</a> ,<a href="../RU_index.html">俄文</a>,<a href="../JP_index.html">日文</a>. 当前语言:中文</p> 老版本进入：<a href="../oldfile_library/v1.html">V1.0 Beta</a> 
+ <a href="../oldfile_library/v2.0.html">v2.0 build 2</a>
+ <br>
+ <hr>
+   <link type="text/css" rel="stylesheet" href"css/index.css">
+   </link>
+ <p><p style="color:#3FC"><font size="7">个人简介</font></p>
+ <hr>
+ <p id="guarantee">
+ <q><font size="+0"><txt>首先，欢迎你来到更新后的网站！</txt></font>
+ <br>
+ <strong>
+   我的名字叫万福丞，今年12岁了
+   </strong>
+   <br>
+   我的爱好就是编程，这个网站就是我的作品之一！
+   <br>
+   以后我还会学习<a href="https://baike.baidu.com/item/html5/4234903">HTML 5高级</a>，
+   <a href="https://baike.baidu.com/item/CSS/5457?fr=aladdin">CSS</a>,
+   <a href="https://baike.baidu.com/item/Java/85979?fr=aladdin"
+">Java</a>,
+<a href="https://baike.baidu.com/item/Python/407313?fr=aladdin">Python</a>代码.
+   <br>
+   以后还会编写APP，感谢你对我的支持
+   <br>
+   ————FuCheng .Inc 2018
+   <p style="color:#33F">
+   </q>
+  </p>
+  <hr>
+<h2><a href<p style="color:#000000">一些图片</a></p></h2>
+ <p>DESKTOP</p>
+ <img src="../img/desktop1.jpg"height="200" width="300">
+ <body background="img/desktop2.jpg">
+ <br>
+ <hr>
+ <body background="img/desktop1.jpg">
+<textarea name="liuyan"rows="10" cols="48"></textarea>
+    <input type="submit" style='font-size:18px' value="发送留言">
+<hr>
+  "
+  <br>
+  <h2>联系方式</h2>
+  <ol>
+  <li><button><a href="../files/lianxi/QQ.txt">QQ</a></button></li>
+  <li><button><a href="../files/lianxi/WX.txt">微信</a></button></li>
+  <li><button><a href="../files/lianxi/MINECRAFT.txt">MINECRAFT</a></button></li>
+  <li><button><a href="../files/lianxi/PHONE.TXT">手机</a></button></li>
+  </ol>
+  <br>
+  <hr>
+  <p>网站作者：万福丞<br>网站域名: fucheng.cf</p>
+  <hr>
+  <br>
+  <h2>
+  <q>我的网页中转</q>
+</h2>
+  <button>
+<a href="zhongzhuan.html">中转传送</a>
+</button>
+  <hr>
+  <button>
+<a href="homephotos.html">PHOTOS</a>
+</button>
+  <hr>
+  <p><strong>VIDEO</strong></p>
+  <video controls width="560" height="315" src="../img/VID4.mp4">
+  </video>
+  <p>
+  YOUTUBE
+  </p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/65-ofZXfBx0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <p>
+  Minecraft
+  <br>
+  （等待视频状态，发视频链接到wanfucheng666@gmail.com更新视频列表)
+  </p>
+  <hr>
+  <div id="art">
+  <!-- login -->
+<h2>登录 LOGIN</h2>
+  <form action="404error.html"method="POST">
+  <p>名字：<input type="text" name="名字">
+  <br>
+   城市：<input type="text" name="城市">
+   <br>
+    邮箱:<input type="text" name="邮箱">
+    <br>
+     手机号<input type="tel" name="手机号">
+   </p>
+   <button>发送 </button>
+   </div>
+  <hr>
+  <!--music -->
+  <h2>推荐音乐</h2>
+  <ol>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="https://music.163.com/outchain/player?type=2&id=29534449&auto=0&height=66">
+  </iframe>
+<p>
+  <li>
+  <a href="https://music.163.com/#/song?id=29534449">Unity</a><em>-TheFatRat</em>
+  </li>
+</p>
+  <br>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="https://music.163.com/outchain/player?type=2&id=4010195&auto=0&height=66">
+  </iframe>
+  <p>
+  <li>
+  <a href="https://music.163.com/#/song?id=4010201">Minecraft</a><em>-C418</em>
+  </li>
+  </p>
+  <br>
+  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="https://music.163.com/outchain/player?type=2&id=4010195&auto=0&height=66">
+</iframe>
+  <p>
+  <li>
+  <a href="https://music.163.com/#/song?id=4010195">Moog City 2</a>
+  <em>-C418</em>
+  </em>
+  </li>
+  </ol>
+  <br>
+  <hr>
+  <h2>
+  所有网站预览
+  </h2>
+  <p>
+  论坛预览
+  </p>
+  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=750 height=300 src="http://fucheng.666forum.com">
+</iframe>
+   <p>
+   网址中转预览
+   </p>
+ <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=750 height=300 src="file://E:/HTML/internets/zhongzhuan.html">
+</iframe>
+  <hr>
+  <h2>下载 APP</h2>
+  <a href="../404error.html"target="_blank"><img src="../img/download1.png"height="180"width="450">
+  </a>
+    <p>
+  <em>备注：暂时没有学会JAVA语言，不会编程手机APP,请耐心等待</em>
+  </p>
+  <hr>
+  <h2>
+  提一些建议
+  </h2>
+  <p>
+  请给我的网站提一些建议！
+  <br>
+  发邮件至wanfucheng666@gmail.com或进入论坛来给我提一些建议。
+  </p>
+  <hr>
+  <p style="color:#FFBF00">
+  注意！以下数据已经不在更新
+  </p>
+ <p style="color:#F06">
+ <strong>
+ 本站代码行数:<font size="+1">781行</font>
+ <br>
+ CSS代码行数:<font size="+1">246行</font> 
+ <br>
+ 全站代码行数:<font size="+1">1148行</font>
+ <br>
+ JavaScript/Java代码行数:<font size"+1">8行</font>
+ </strong>
+ </p>
+ <p style="color:#FFDF55">
+ 网站最后更新于2018年8月12日
+ <br>
+ 语言最后更新于2018年7月29日
+ </p>
+ <hr>
+ <h2>我的世界地图存档</h2>
+ <a href="../../D:/Minecraft/MinecraftLauncher.exe">Minecraft</a>
+ <br>
+ <hr>
+ <p>
+ <fuchengtag>
+ 欢迎下次浏览！
+ </fuchengtag>
+ <br>
+ <testtag>
+ GOOD BYE!
+ </testtag>
+ </p>
+ <hr>
+  </div>
+  <div id="down">
+  <body background="img/2/1.jpg">
+  <hr>
+  <br>
+  <hr>
+  <h1>
+  下载区
+  </h1>
+  <p style="color:#F05">
+  下载壁纸区
+   </p>
+  <img src="../img/2/3.jpg"alt="你的浏览器好像不支持此网站"height="250"width="750">
+  <br>
+  <a href="../img/2/3.jpg">图片1-点击下载</a>
+  <br>
+  <img src="../img/2/2.jpg"alt="你的浏览器好像不支持此网站"height="250"width="750">
+  <br>
+  <a href="../img/2/2.jpg">图片2-点击下载</a>
+  <br>
+  <img src="../img/2/4.jpg"alt="你的浏览器好像不支持此网站"height="250"width="750">
+  。。<br>
+  <a href="../img/2/4.jpg">图片3-点击下载</a>
+  <img src="../img/2/1.jpg"alt="你的浏览器好像不支持此网站"height="250"width="750">
+  <br>
+  <a href="../img/2/1.jpg">图片4-点击下载</a>
+  </div>
+  <!--table-->
+  <br>
+  <hr>
+  <caption><font size="+2">我去过的地方</font></caption>
+  <h5>(2013年以后)</h5>
+ <table>
+  <tr>
+    <th>城市</th>
+    <th>日期（年/月）</th>
+    <th>喜欢程度</th>
+    <th>备注</th>
+  </tr>
+  <tr>
+    <td>黑龙江-哈尔滨</td>
+    <td>2007-04-09</td>
+    <td>1000星</td>
+    <td>非常好！！！</td>
+  </tr>
+  <tr>
+    <td>海南-三亚</td>
+    <td>2013-12-06</td>
+    <td>5星</td>
+    <td>海好</td>
+   </tr>
+   <tr>
+    <td>青岛</td>
+    <td>2017-07-XX</td>
+    <td>4.5星</td>
+    <td>无</td>
+   </tr>
+   <tr>
+    <td>成都</td>
+    <td>2017-08-XX</td>
+    <td>4.5星</td>
+    <td>无</td>
+   </tr>
+   <tr>
+    <td>泰山</td>
+    <td>2015-08-XX</td>
+    <td>5星</td>
+    <td>山顶看日出</td>
+   </tr>
+   <tr>
+    <td>牡丹江</td>
+    <td>2017-07-XX</td>
+    <td>4星</td>
+    <td>镜泊湖</td>
+   </tr>
+   <tr>
+    <td>兴城</td>
+    <td>2018-07-10</td>
+    <td>3.5星</td>
+    <td>海不太好</td>
+   </tr>
+   <tr>
+    <td>山海关</td>
+    <td>2018-07-20</td>
+    <td>4.5星</td>
+    <td>无</td>
+   </tr>
+   <tr>
+    <td>秦皇岛</td>
+    <td>2018-07-20</td>
+    <td>4.5星</td>
+    <td>无</td>
+   </tr>
+   <tr>
+    <td>北戴河</td>
+    <td>2018-07-15</td>
+    <td>5星</td>
+    <td>VERY GOOD</td>
+   </tr>
+   <tr>
+    <td>没有更多旅游记录了</td>
+    <td>XXXX-XX-XX</td>
+    <td>X星</td>
+    <td>NONE</td>
+   </tr>
+</table>
+    <hr>
+    <h2>对本网站进行投票</h2>
+    <table>
+    <tr>
+    <th>万福丞</th>
+    <td>5/5</td>
+    </tr>
+    <tr>
+    <th>金楷曦</th>
+    <td>5/5</td>
+    </tr>
+    <tr>
+    <td>黄杰</td>
+    <th>5/5</th>
+    </tr>
+    <tr>
+    <td>妈妈(张丽娟)</td>
+    <th>5/5</th>
+    </tr>
+    <tr>
+    <td>爷爷(万永发)</td>
+    <th>5/5</th>
+    </tr>
+    <tr>
+    <td>Unkown</td>
+    <th>5/5</th>
+    </tr>
+    <tr>
+    <th>You</th>
+    <td>0/5</td>
+    </tr>
+    </table>
+    <!--PYTHON-->
+    <script language="python">
+	</script>
+    <!--END PYTHON-->
+    <p>
+    已经收到邮件数量：2张
+    </p>
+    <p>
+    你可以通过发邮件至wanfucheng666@gmail.com进行投票
+    </p>
+    <p>
+    投票格式
+    </p>
+    <ul>
+    <p>
+    <li>你的姓名</li>
+    </p>
+    <p>
+    <li>星级(1-5星)</li>
+    </p>
+    <hr>
+    <h2>
+    登陆(beta)
+    </h2>
+    <form action="../login/login.php"method="POST">
+    <br>
+
+    <meta charset="utf-8">
+    手机号:<input type="text"name="telephone"value=""><br>
+    QQ,微信，邮箱:<input type="text"name="email"value=""><br>
+    姓名:<input type="text"name="name"value=""><br>
+    <p>
+     生日:
+     <select name="year">
+      <option>1950</option>
+      <option>1951</option>
+      <option>1952</option>
+      <option>1953</option>
+      <option>1954</option>
+      <option>1955</option>
+      <option>1956</option>
+      <option>1957</option>
+      <option>1958</option>
+      <option>1959</option>
+      <option>1960</option>
+      <option>1961</option>
+      <option>1962</option>
+      <option>1963</option>
+      <option>1964</option>
+      <option>1965</option>
+      <option>1966</option>
+      <option>1967</option>
+      <option>1968</option>
+      <option>1969</option>
+      <option>1970</option>
+      <option>1971</option>
+      <option>1972</option>
+      <option>1973</option>
+      <option>1974</option>
+      <option>1975</option>
+      <option>1976</option>
+      <option>1977</option>
+      <option>1979</option>
+      <option>1980</option>
+      <option>1981</option>
+      <option>1982</option>
+      <option>1983</option>
+      <option>1984</option>
+      <option>1985</option>
+      <option>1986</option>
+      <option>1987</option>
+      <option>1988</option>
+      <option>1989</option>
+      <option>1990</option>
+      <option>1991</option>
+      <option>1992</option>
+      <option>1993</option>
+      <option>1994</option>
+      <option>1995</option>
+      <option>1996</option>
+      <option>1997</option>
+      <option>1998</option>
+      <option>1999</option>
+      <option>2000</option>
+      <option>2001</option>
+      <option>2002</option>
+      <option>2003</option>
+      <option>2004</option>
+      <option>2005</option>
+      <option>2006</option>
+      <option>2007</option>
+      <option>2008</option>
+      <option>2009</option>
+      <option>2010</option>
+      <option>2011</option>
+      <option>2012</option>
+      <option>2013</option>
+      <option>2014</option>
+      <option>2015</option>
+      <option>2016</option>
+      <option>2017</option>
+      <option>2018</option>
+    </select>
+年 
+     <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      </select>    
+      月
+      <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+      <option>21</option>
+      <option>22</option>
+      <option>23</option>
+      <option>24</option>
+      <option>25</option>
+      <option>26</option>
+      <option>27</option>
+      <option>28</option>
+      <option>29</option>
+      <option>30</option>
+      <option>31</option>
+     </select>  
+     日
+    <p>
+     常玩的游戏:
+     <select name="game">
+      <option value="minecraft">Minecraft</option>
+      <option value="wzry">其他游戏</option>
+     </select>
+     <p>
+     密码：<input type="password"name="secret">
+          <br>
+     </p>
+    <input type="submit">
+    </p>
+    </form>
+    <hr>
+    <h2>
+    你觉得该网站怎么样？
+    </h2>
+<input type="checkbox"name="spice"valur="非常喜欢">
+    <p style="color:#0FA">
+    非常喜欢
+    </p>
+    <input type="checkbox"name="spice"value="喜欢">
+    <p style="color:#00F">
+    喜欢
+    </p>
+    <br>
+    <input type="checkbox"name="spice"value="还行">
+    <p style="color:#FF0">
+    还行
+    </p>
+    <br>
+    <input type="checkbox"name="spice"value="不喜欢">
+    <p style="color:#F00">
+    糟透了
+    </p>
+    <br>
+<input type="chenkbox"name="spice"value="选择以上内容,先点击“提交”，再点击“确认提交”">
+<form actiobn="login.php">
+    <input type="submit">
+    <button><a href="../login/losttp.html">确认提交</a></button>
+    <p>
+    <hr>
+    <br>
+    <p style="color:#3FF">
+    我家的地图坐标
+    </p>
+    <h5>
+    （坐标45.8,126.5）
+    </h5>
+ <br>
+ <div>
+ <script>
+function initialize()
+{
+    var mapProp = {
+        center:new google.maps.LatLng(45.8,126.5),
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+ 
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<?php
+  date_default_timezone_set("PRC");
+  $nowtime = time();
+  $rq = date("Y-m-d",$nowtime);
+?>
+<span>日期：</span><input type="date" name="date"/>
+<br><br>
+<span>时间：</span><input type="time" name="time"/>
+
+</div>
+ <img src="../img/map.PNG"height="571"width="750">
+ <!--END GOOGLE MAP -->
+ <br>
+ <hr>
+  <em><font size="5">THE END</font></em>
+</p>
+  <body background="img/desktop2.jpg">
+  <p>&copy CopyRight WanFuCheng 2018</p>
+  <hr>
+    <hr>
+   <h1 style="color:#0FF">
+   以下内容正在施工中，请期待
+   </h1>
+  <p>
+  <del><del>&nbsp;我不知道弄什么了</del></del>
+  </p>
+ <title>万福丞的网站</title>
+</body>
+  </html>
+  <!--width=高 height=宽-->
+  <!--fuchengphoto.sxl.cn--> 
+  <!--fuchengphoto.sxl.cn-->
+  <!--fuchengphoto.sxl.cn-->
+  <!--欢迎来到我的网站！,(休闲室网站),一些图片,桌面,留言室,发送留言,联系方式,QQ,微信,MINECRAFT,手机,网站作者

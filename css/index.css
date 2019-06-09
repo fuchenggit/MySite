@@ -1,0 +1,273 @@
+h1,h2{
+	font-family:sans-serif;
+	color:Auqa;
+	font-size:150%;
+}
+
+h1 {
+	border-bottom:1px solid black;
+}
+
+p {
+ color:#000;
+}
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	line-height: 1.9em;
+	/*background-repeat:no-repeat;
+	background-position:top left;  */
+}
+#guarantee {
+	border-color:black;
+	border-width:1px;
+	border-style:solid;
+	background-color:#00BFAA;
+	padding：25px;
+	margin:30px;
+	line-height:1.9em;
+	color:#2AFFFF;
+	padding-left:80px;
+	margin-right:450px;
+}
+	
+#button {
+	height: 50px;
+	width: 60px;
+}
+#line {
+	
+	width:200px;
+	height:15000px;
+	
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:10px;
+	
+	text-align:center;
+	
+	background-color:#CCC;
+	
+	float:right;
+}
+#big {
+
+	width:150px;
+	height:12500px;
+	
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:10px;
+	
+	text-align:center;
+	
+	background-color:#CCC;
+	
+	float:left;
+}
+#mid {
+	border-width:thin;
+	border-style:solid;
+	border-color:#6FF;
+	width:1300px;
+	height:4950px;
+	
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:210px;
+	margin-bottom:30px;
+	margin-left:110px;
+	
+	text-align:center;
+	
+	background-image:url(../img/desktop2.jpg);
+	background:url(../img/desktop2.jpg);
+
+#art {
+	font-weight:bold;
+}
+
+h3 {
+	color:#D4FF00;
+}
+h4 {
+	color:#50F;
+}
+h5 {
+	color:#FFBF00;
+}
+h6 {
+	font-size:large;
+}
+#mid {
+	float:right;
+}
+#logo {
+		border-width:thin;
+	border-style:solid;
+	border-color:#6FF;
+	width:795px;
+	height:250px;
+	
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:10px;
+	
+	text-align:center;
+	
+	background:url(../img/logobackground.png);
+}
+/* logobar */
+#lgbar {
+	border-width:thin;
+	border-style:solid;
+	border-color:#000;
+	width:250px;
+	height:900px;
+	
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:10px;
+	
+	text-align:left;
+	
+	background:#2A3FAA;
+}
+#down {
+	border-width:thin;
+	border-style:solid;
+	border-color:#000;
+	width:1000px;
+	height:5050px;
+	
+	padding-top:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	
+	padding:20px;
+	
+	margin-top:0px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:10px;
+	
+	text-align:center;
+	
+	background:url(img/2/1.jpg);
+}
+#10000 {
+	width:10000px;
+	height:1px;
+}
+fuchengtag {
+	color:blue;
+}
+testtag {
+	color:black;
+}
+txt {
+	font-size:38px;
+}
+a:link {
+	color:#00FFFF;
+}
+a:visited {
+	color:#00FFFF;
+}
+a:hover {
+	color:FFA500;
+}
+downline {
+	text-decoration:none;
+	border-bottom: thin dotted #FFDF55;
+}
+table {
+	margin-left:20px;
+	margin-right:20px;
+	border:thin solid grey;
+	caption-side:bottom;
+}
+td,th {
+	border:thin dotted grey;
+	padding:5px;
+}
+caption {
+	font-style:italic;
+	padding-top:8px;
+}
+li {
+	list-style-image:url(../img/li.png);
+	padding-top:5px;
+	margin-left:20px;
+}
+if (!+"\v1") {
+      document.body.innerHTML = "<div style='background: #00a1d6; text-align: center; padding: 10px 0; color: #fff;'>不支持IE8及以下版本浏览器访问，建议你升级到IE最新版本浏览器，或使用Chrome等其他浏览器。<\/div>"
+    }
+ul {
+	background color:#00DFFF;
+	margin:10px 10px 0px 10px;
+	list-style-type:none;
+	padding:5px 0px 5px 0px;
+}
+ul,li {
+	display:inline;
+	padding:5px 10px 5px 10px;
+}
+ul li a:link,ul li a:visited {
+	color:#00F;
+	border-bottom:none;
+	font-weight:bold;
+}
+ul li.seleted {
+	background-color:#9FF;
+}
+header {
+	background-color:#675c47;
+	margin:10px 10px 0px 10px;
+	height:108px;
+}
+header.top {
+	background-color:#675c47;
+	margin:10px 10px 0px 10px;
+}
+header.top img#headerSlogan {
+	float:right;
+}

@@ -1,0 +1,5 @@
+<body background="d:\image\石家庄.jpg">
+平铺背景
+<em>
+标记
+CSS:	text-decoration:underline;
